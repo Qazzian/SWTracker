@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 			},
 			prod: {
 				options: {
-					environment: ':production'
+					environment: 'production'
 				}
 			}
 		}
