@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "description": "Tracking app for your daily Slimming world Syns and healthy extras",
   "main": "index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-compass": "^1.0.3",
+    "grunt-contrib-watch": "^0.6.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +18,5 @@
     "syns"
   ],
   "author": "Qazzian@gmail.com",
-  "license": "GPL3"
+  "license": "GPL-3.0"
 }
