@@ -1,0 +1,53 @@
+
+
+.totals {
+  display: flex;
+  margin: 1ex 0;
+
+  div {
+    border: 1px solid;
+    flex: 1 1 0;
+    text-align: center;
+  }
+
+}
+
+.swt_plan_type_section {
+  display: flex;
+  text-align: center;
+
+  label {
+    flex: 1 1 0;
+  }
+
+  select {
+    flex: 1 2 0;
+  }
+}
+
+.swt_add_food_section {
+  display: flex;
+
+  input,
+  button {
+
+  }
+
+  input {
+    flex: 5 1 0;
+  }
+  
+  button {
+    flex: 1 1 0;
+  }
+}
+
+.swt_food_list_section {
+  table {
+    width: 100%;
+  }
+
+  td {
+    padding: 0 1ex;
+  }
+}

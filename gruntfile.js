@@ -19,6 +19,15 @@ module.exports = function(grunt) {
 					environment: 'production'
 				}
 			}
+		},
+		watch: {
+			options: {
+				interrupt: true
+			},
+			styles: {
+				files: ['public/sass/**/*.scss'],
+				tasks: ['compass:dev']
+			}
 		}
 
 	});
@@ -29,6 +38,6 @@ module.exports = function(grunt) {
 
 	// Custom tasks.
 	grunt.registerTask('default', ['compass']);
-	grunt.registerTask('watch', ['compass:dev']);
+	grunt.registerTask('watchDev', ['compass:dev', 'watch']);
 
 };
