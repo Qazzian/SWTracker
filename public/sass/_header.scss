@@ -1,33 +1,33 @@
 nav ul {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 
-  li {
-    flex: 1 1 0;
-    text-align: center;
+	li {
+		flex: 1 1 0;
+		text-align: center;
 
-    background-color: $nav_background_color;
-    border: 1px solid $nav_border_color;
-    border-width: 1px 1px 1px 0;
+		background-color: $nav_background_color;
+		border: 1px solid $nav_border_color;
+		border-width: 1px 1px 1px 0;
 
-    &:first-of-type {
-      border-width: 1px;
-    }
+		&:first-of-type {
+			border-width: 1px;
+		}
 
-    a {
-      display: block;
-      padding: 0.5ex 1ex;
+		a {
+			display: block;
+			padding: 0.5ex 1ex;
 
-      &,
-      &:hover,
-      &:focus,
-      &:active,
-      &:visited {
-        color: $nav_link_color;
-        text-decoration: none;
+			&,
+			&:hover,
+			&:focus,
+			&:active,
+			&:visited {
+				color: $nav_link_color;
+				text-decoration: none;
 
-      }
-    }
+			}
+		}
 
-  }
+	}
 }

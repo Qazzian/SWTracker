@@ -3,6 +3,9 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		copy: {
+			files: {}
+		},
 		compass: {
 			options: {
 				config: 'compassConfig.rb'
@@ -19,6 +22,9 @@ module.exports = function(grunt) {
 					environment: 'production'
 				}
 			}
+		},
+		requirejs: {
+
 		},
 		watch: {
 			options: {
