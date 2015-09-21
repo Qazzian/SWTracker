@@ -7,12 +7,7 @@ nav ul {
 		text-align: center;
 
 		background-color: $nav_background_color;
-		border: 1px solid $nav_border_color;
-		border-width: 1px 1px 1px 0;
-
-		&:first-of-type {
-			border-width: 1px;
-		}
+		@include tableStyleBorders(1px, solid, $nav_border_color);
 
 		a {
 			display: block;

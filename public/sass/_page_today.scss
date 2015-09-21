@@ -5,7 +5,8 @@
 	margin: 1ex 0;
 
 	div {
-		border: 1px solid;
+		@include tableStyleBorders(1px, solid, $nav_border_color);
+
 		flex: 1 1 0;
 		text-align: center;
 	}

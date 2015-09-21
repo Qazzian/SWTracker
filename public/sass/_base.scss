@@ -1,4 +1,13 @@
 
+@mixin tableStyleBorders($width: '1px', $style: 'solid', $color: '#000') {
+	border: $width $style $color;
+	border-width: $width $width $width 0;
+
+	&:first-of-type {
+		border-width: $width;
+	}
+}
+
 
 section {
 	margin: 1em 0;
