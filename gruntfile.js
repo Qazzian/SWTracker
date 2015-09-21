@@ -1,10 +1,22 @@
+
 module.exports = function(grunt) {
+
+	//var Log = require('grunt-legacy-log').Log;
+	//var logger = new Log({grunt: grunt});
+	//grunt.log = logger.writeln;
+
+
+	grunt.log.writeln('Adding config');
 
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		copy: {
-			files: {}
+		bower: {
+			dev: {
+				dest: 'public/',
+				js_dest: 'public/js/lib',
+				css_dest: 'public/sass/lib'
+			}
 		},
 		compass: {
 			options: {
@@ -39,6 +51,7 @@ module.exports = function(grunt) {
 	});
 
 	// Load plugins.
+	grunt.loadNpmTasks('grunt-bower');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 

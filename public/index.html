@@ -82,9 +82,15 @@
 
     <!-- TODO: Refactor to use a dependency management tool -->
     <!-- TODO: add common libraries -->
-    <!--<script type="javascript" src="js/lib/lodash.js"></script>-->
-    <!--<script type="javascript" src="js/lib/jQuery.js"></script>-->
-    <!--<script type="javascript" src="js/lib/mustache.js"></script>-->
-    <script type="javascript" src="js/pages/today.js"></script>
+    <script type="text/javascript" src="js/lib/require.js"></script>
+    <script type="text/javascript">
+        window.onload = function (e) {
+            require(['js/config.js'], function(config){
+                require(['pages/today']);
+            });
+        };
+    </script>
+
+
 </body>
 </html>
