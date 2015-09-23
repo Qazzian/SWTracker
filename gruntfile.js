@@ -35,6 +35,14 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		htmllint: {
+			your_target: {
+				options: {},
+				src: [
+					'public/**/*.html'
+				]
+			}
+		},
 		requirejs: {
 
 		},
@@ -67,6 +75,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-bower');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-htmllint');
 	grunt.loadNpmTasks('grunt-scss-lint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 

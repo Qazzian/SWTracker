@@ -11,6 +11,7 @@
     "grunt-contrib-compass": "^1.0.3",
     "grunt-contrib-requirejs": "^0.4.4",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-htmllint": "^0.2.7",
     "grunt-scss-lint": "^0.3.8",
     "requirejs": "^2.1.20"
   },
