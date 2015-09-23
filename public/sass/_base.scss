@@ -1,5 +1,4 @@
-
-@mixin tableStyleBorders($width: '1px', $style: 'solid', $color: '#000') {
+@mixin table-style-borders($width: '1px', $style: 'solid', $color: '#000') {
 	border: $width $style $color;
 	border-width: $width $width $width 0;
 
@@ -8,12 +7,11 @@
 	}
 }
 
-
 section {
 	margin: 1em 0;
 }
 
 footer {
 	position: fixed;
-	bottom: 0px;
+	bottom: 0;
 }

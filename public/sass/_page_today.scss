@@ -5,7 +5,7 @@
 	margin: 1ex 0;
 
 	div {
-		@include tableStyleBorders(1px, solid, $nav_border_color);
+		@include table-style-borders(1px, solid, $nav-border-color);
 
 		flex: 1 1 0;
 		text-align: center;
@@ -13,7 +13,7 @@
 
 }
 
-.swt_plan_type_section {
+.swt-plan-type-section {
 	display: flex;
 	text-align: center;
 
@@ -26,12 +26,12 @@
 	}
 }
 
-.swt_add_food_section {
+.swt-add-food-section {
 	display: flex;
 
 	input,
 	button {
-
+	// TODO Set the style
 	}
 
 	input {
@@ -43,7 +43,7 @@
 	}
 }
 
-.swt_food_list_section {
+.swt-food-list-section {
 	table {
 		width: 100%;
 	}

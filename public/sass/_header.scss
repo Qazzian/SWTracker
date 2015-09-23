@@ -3,26 +3,26 @@ nav ul {
 	flex-direction: row;
 
 	li {
+		@include table-style-borders(1px, solid, $nav-border-color);
+
+		background-color: $nav-background-color;
 		flex: 1 1 0;
 		text-align: center;
 
-		background-color: $nav_background_color;
-		@include tableStyleBorders(1px, solid, $nav_border_color);
+	}
 
-		a {
-			display: block;
-			padding: 0.5ex 1ex;
+	a {
+		display: block;
+		padding: 0.5ex 1ex;
 
-			&,
-			&:hover,
-			&:focus,
-			&:active,
-			&:visited {
-				color: $nav_link_color;
-				text-decoration: none;
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&:visited {
+			color: $nav-link-color;
+			text-decoration: none;
 
-			}
 		}
-
 	}
 }
