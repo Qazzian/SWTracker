@@ -52,6 +52,9 @@ module.exports = function(grunt) {
 			options: {
 				interrupt: true
 			},
+			scripts: {
+				files: ['public/js']
+			},
 			styles: {
 				files: ['public/sass/**/*.scss'],
 				tasks: ['compass:dev', 'scsslint']
@@ -68,7 +71,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	// Custom tasks.
-	grunt.registerTask('default', ['compass']);
-	grunt.registerTask('watchDev', ['compass:dev', 'watch']);
+	grunt.registerTask('default', ['prod']);
+	grunt.registerTask('prod', ['bower:dev', 'compass:prod']);
+	grunt.registerTask('dev', ['bower:dev', 'compass:dev']);
+
+	grunt.registerTask('doWatch', ['watchTasks', 'watch']);
+	grunt.registerTask('watchTasks', ['compass:dev', 'scsslint']);
 
 };
