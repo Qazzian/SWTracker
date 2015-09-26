@@ -36,8 +36,10 @@ module.exports = function(grunt) {
 			}
 		},
 		htmllint: {
-			your_target: {
-				options: {},
+			dev: {
+				options: {
+					htmllintrc: './.htmllintrc'
+				},
 				src: [
 					'public/**/*.html'
 				]
@@ -59,6 +61,10 @@ module.exports = function(grunt) {
 		watch: {
 			options: {
 				interrupt: true
+			},
+			html: {
+				files: ['public/**/*.html'],
+				tasks: ['htmlTasks']
 			},
 			scripts: {
 				files: ['public/js']
@@ -83,6 +89,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['prod']);
 	grunt.registerTask('prod', ['bower:dev', 'compass:prod']);
 	grunt.registerTask('dev', ['bower:dev', 'compass:dev']);
+	grunt.registerTask('htmlTasks', ['htmllint']);
 
 	grunt.registerTask('doWatch', ['watchTasks', 'watch']);
 	grunt.registerTask('watchTasks', ['compass:dev', 'scsslint']);
