@@ -1,0 +1,42 @@
+{
+  "browser": true,
+  "jquery": true,
+  "node": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "freeze": true,
+  "indent": 4,
+  "latedef": true,
+  "immed": true,
+  "noempty": true,
+  "newcap": true,
+  "nonew": false,
+  "quotmark": "single",
+  "strict": true,
+  "undef": true,
+  "unused": true,
+
+  "globals": { "ACC": true },
+
+  // RELAXING OPTIONS
+  "eqnull": true,
+
+  "predef" : [
+	"define",
+	"require",
+	"requirejs",
+	"describe",
+	"it",
+	"expect",
+	"beforeEach",
+	"afterEach",
+	"spyOn",
+	"jasmine",
+	"xit"
+  ]   // Custom globals for RequireJS
+
+}
+
+
