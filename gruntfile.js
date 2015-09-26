@@ -45,8 +45,11 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+		jshint: {
+			// TODO
+		},
 		requirejs: {
-
+			// TODO
 		},
 		scsslint: {
 			allFiles: [
@@ -67,11 +70,12 @@ module.exports = function(grunt) {
 				tasks: ['htmlTasks']
 			},
 			scripts: {
-				files: ['public/js']
+				files: ['public/js'],
+				tasks: ['scriptTasks']
 			},
 			styles: {
 				files: ['public/sass/**/*.scss'],
-				tasks: ['compass:dev', 'scsslint']
+				tasks: ['styleTasks']
 			}
 		}
 
@@ -82,16 +86,21 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-htmllint');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-scss-lint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	// Custom tasks.
-	grunt.registerTask('default', ['prod']);
-	grunt.registerTask('prod', ['bower:dev', 'compass:prod']);
-	grunt.registerTask('dev', ['bower:dev', 'compass:dev']);
-	grunt.registerTask('htmlTasks', ['htmllint']);
 
-	grunt.registerTask('doWatch', ['watchTasks', 'watch']);
-	grunt.registerTask('watchTasks', ['compass:dev', 'scsslint']);
+	// Custom tasks.
+	grunt.registerTask('default', ['allTasks']);
+	//grunt.registerTask('prod', ['bower:dev', 'compass:prod']);
+	//grunt.registerTask('dev', ['bower:dev', 'compass:dev']);
+	grunt.registerTask('doWatch', ['allTasks', 'watch']);
+
+	grunt.registerTask('allTasks', ['htmlTasks', 'scripTasks', 'styleTasks']);
+	grunt.registerTask('htmlTasks', ['htmllint']);
+	grunt.registerTask('scriptTasks', ['jshint']);
+	grunt.registerTask('styleTasks', ['compass:dev', 'scsslint']);
+
 
 };
