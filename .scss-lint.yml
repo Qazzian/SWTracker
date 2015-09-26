@@ -10,7 +10,7 @@ linters:
 
   BorderZero:
     enabled: true
-    convention: none # or `zero`
+    convention: zero # none or `zero`
 
   ColorKeyword:
     enabled: false
@@ -126,10 +126,10 @@ linters:
 
   SingleLinePerProperty:
     enabled: true
-    allow_single_line_rule_sets: true
+    allow_single_line_rule_sets: false
 
   SingleLinePerSelector:
-    enabled: false
+    enabled: true
 
   SpaceAfterComma:
     enabled: true
