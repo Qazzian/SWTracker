@@ -46,7 +46,15 @@ module.exports = function(grunt) {
 			}
 		},
 		jshint: {
-			// TODO
+			options: {
+
+			},
+			all: [
+				'gruntfile.js',
+				'public/js/**/*.js',
+				'!public/js/lib/**/*.js'
+			]
+
 		},
 		requirejs: {
 			// TODO
