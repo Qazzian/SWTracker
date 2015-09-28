@@ -97,7 +97,7 @@ module.exports = function(grunt) {
 	//grunt.registerTask('dev', ['bower:dev', 'compass:dev']);
 	grunt.registerTask('doWatch', ['allTasks', 'watch']);
 
-	grunt.registerTask('allTasks', ['htmlTasks', 'scripTasks', 'styleTasks']);
+	grunt.registerTask('allTasks', ['htmlTasks', 'scriptTasks', 'styleTasks']);
 	grunt.registerTask('htmlTasks', ['htmllint']);
 	grunt.registerTask('scriptTasks', ['jshint']);
 	grunt.registerTask('styleTasks', ['compass:dev', 'scsslint']);
