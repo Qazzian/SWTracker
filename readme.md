@@ -3,10 +3,6 @@
 This is a simple web app to help you track your daily Syns and healthy options.
 
 
-## Install
-
-TODO
-
 ## Development Requirements
 
 To build this from source you will first need to download and install the following dependencies:
