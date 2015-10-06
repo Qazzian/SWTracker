@@ -18,7 +18,7 @@
     "requirejs": "^2.1.20"
   },
   "scripts": {
-    "prepublish": "bower install && grunt",
+    "prepublish": "bundler install && bower install && grunt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
