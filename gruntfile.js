@@ -74,20 +74,43 @@ module.exports = function(grunt) {
 				interrupt: true
 			},
 			html: {
-				files: ['public/**/*.html'],
+				files: [
+					'public/**/*.html',
+					'.htmllintrc'
+				],
 				tasks: ['htmlTasks']
 			},
 			scripts: {
-				files: ['public/js'],
+				files: [
+					'public/js/**/*.js',
+					'!public/js/lib/**/*.js',
+					'.jshintrc',
+					'bower.json'
+
+				],
 				tasks: ['scriptTasks']
 			},
 			styles: {
-				files: ['public/sass/**/*.scss'],
+				files: [
+					'public/sass/**/*.scss',
+					'.scss-lint.yml',
+					'compassConfig.rb'
+				],
 				tasks: ['styleTasks']
 			}
 		}
 
 	});
+
+
+	// Custom tasks.
+	grunt.registerTask('default', 'Alias for allTasks.', ['allTasks']);
+	grunt.registerTask('doWatch', 'Run allTasks then watch for changes.', ['allTasks', 'watch']);
+
+	grunt.registerTask('allTasks', 'Run all the tasks.', ['htmlTasks', 'scriptTasks', 'styleTasks']);
+	grunt.registerTask('htmlTasks', 'run all html related tasks.', ['htmllint']);
+	grunt.registerTask('scriptTasks', 'run all js related tasks.', ['jshint']);
+	grunt.registerTask('styleTasks', 'run all scss and css related tasks.\n', ['compass:dev', 'scsslint']);
 
 	// Load plugins.
 	grunt.loadNpmTasks('grunt-bower');
@@ -98,17 +121,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-scss-lint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-
-	// Custom tasks.
-	grunt.registerTask('default', ['allTasks']);
-	//grunt.registerTask('prod', ['bower:dev', 'compass:prod']);
-	//grunt.registerTask('dev', ['bower:dev', 'compass:dev']);
-	grunt.registerTask('doWatch', ['allTasks', 'watch']);
-
-	grunt.registerTask('allTasks', ['htmlTasks', 'scriptTasks', 'styleTasks']);
-	grunt.registerTask('htmlTasks', ['htmllint']);
-	grunt.registerTask('scriptTasks', ['jshint']);
-	grunt.registerTask('styleTasks', ['compass:dev', 'scsslint']);
 
 
 };
