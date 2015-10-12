@@ -24,9 +24,11 @@
   "eqnull": true,
 
   "predef" : [
+    // RequireJS globals
 	"define",
 	"require",
 	"requirejs",
+    // Jasmin globals
 	"describe",
 	"it",
 	"expect",
@@ -35,7 +37,7 @@
 	"spyOn",
 	"jasmine",
 	"xit"
-  ]   // Custom globals for RequireJS
+  ]
 
 }
 
