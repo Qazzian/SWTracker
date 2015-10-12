@@ -1,3 +1,10 @@
+var jsFiles = [
+	'gruntfile.js',
+	'public/js/**/*.js',
+	'!public/js/lib/**/*.js'
+];
+
+
 
 module.exports = function(grunt) {
 
@@ -45,15 +52,17 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+		jscs: {
+			options: {
+
+			},
+			all: jsFiles
+		},
 		jshint: {
 			options: {
 
 			},
-			all: [
-				'gruntfile.js',
-				'public/js/**/*.js',
-				'!public/js/lib/**/*.js'
-			]
+			all: jsFiles
 
 		},
 		requirejs: {
@@ -116,10 +125,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-bower');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-compass');
-	grunt.loadNpmTasks('grunt-htmllint');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-scss-lint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-htmllint');
+	grunt.loadNpmTasks('grunt-jscs');
+	grunt.loadNpmTasks('grunt-scss-lint');
 
 
 

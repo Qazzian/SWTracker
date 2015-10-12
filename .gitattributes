@@ -1,0 +1,3 @@
+# Set the default behavior of linefeed replacments.
+# Always checkout as LF (as we check that in the linters) but always convert CRLF into LF on push
+* text eol=lf
