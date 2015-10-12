@@ -2,6 +2,7 @@
   "name": "slimming-world-tracker",
   "version": "0.0.1",
   "description": "Tracking app for your daily Slimming world Syns and healthy extras",
+  "repository": "git@github.com:Qazzian/SWTracker.git",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
