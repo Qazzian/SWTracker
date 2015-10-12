@@ -2,14 +2,12 @@
  * Created by ianwallis on 14/09/2015.
  */
 
-
 define(function(require){
 	'use strict';
 
 	var _ = require('lodash'),
 		$ = require('jquery'),
 		mustache = require('mustache');
-
 
 	// Some global data
 	var SW_PLANS = {
@@ -41,14 +39,13 @@ define(function(require){
 
 	var FOOD_CATEGORIES = ['SYNS', 'HOA', 'HOB', 'FREE'];
 
-
 	// example data
 
 	var userData = {
 		totals: {
 			syns: 15,
 			hea: 1,
-			heb: 0,
+			heb: 0
 		},
 		planType: 'RED',
 
@@ -66,8 +63,6 @@ define(function(require){
 		this.syns = syns || 0;
 	}
 
-
-
 	return {
 		SW_PLANS: SW_PLANS,
 		FOOD_CATEGORIES: FOOD_CATEGORIES,
@@ -75,7 +70,3 @@ define(function(require){
 	};
 
 });
-
-
-
-

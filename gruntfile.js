@@ -1,17 +1,17 @@
-var jsFiles = [
-	'gruntfile.js',
-	'public/js/**/*.js',
-	'!public/js/lib/**/*.js'
-];
-
 
 
 module.exports = function(grunt) {
+	'use strict';
+
+	var jsFiles = [
+		'gruntfile.js',
+		'public/js/**/*.js',
+		'!public/js/lib/**/*.js'
+	];
 
 	//var Log = require('grunt-legacy-log').Log;
 	//var logger = new Log({grunt: grunt});
 	//grunt.log = logger.writeln;
-
 
 	grunt.log.writeln('Adding config');
 
@@ -21,8 +21,10 @@ module.exports = function(grunt) {
 		bower: {
 			dev: {
 				dest: 'public/',
+				/*jscs:disable requireCamelCaseOrUpperCaseIdentifiers*/
 				js_dest: 'public/js/lib',
 				css_dest: 'public/sass/lib'
+				/*jscs:enable requireCamelCaseOrUpperCaseIdentifiers*/
 			}
 		},
 		compass: {
@@ -32,7 +34,7 @@ module.exports = function(grunt) {
 			dev: {
 				options: {
 					environment: 'development',
-					"output-style": 'nested',
+					'output-style': 'nested',
 					sourcemap: true
 				}
 			},
@@ -82,6 +84,11 @@ module.exports = function(grunt) {
 			options: {
 				interrupt: true
 			},
+			grunt: {
+				files: [
+					'gruntfile.js'
+				]
+			},
 			html: {
 				files: [
 					'public/**/*.html',
@@ -108,9 +115,7 @@ module.exports = function(grunt) {
 				tasks: ['styleTasks']
 			}
 		}
-
 	});
-
 
 	// Custom tasks.
 	grunt.registerTask('default', 'Alias for allTasks.', ['allTasks']);
@@ -118,7 +123,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('allTasks', 'Run all the tasks.', ['htmlTasks', 'scriptTasks', 'styleTasks']);
 	grunt.registerTask('htmlTasks', 'run all html related tasks.', ['htmllint']);
-	grunt.registerTask('scriptTasks', 'run all js related tasks.', ['jshint']);
+	grunt.registerTask('scriptTasks', 'run all js related tasks.', ['jshint', 'jscs']);
 	grunt.registerTask('styleTasks', 'run all scss and css related tasks.\n', ['compass:dev', 'scsslint']);
 
 	// Load plugins.
@@ -130,7 +135,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-htmllint');
 	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-scss-lint');
-
-
 
 };

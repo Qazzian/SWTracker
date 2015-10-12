@@ -2,7 +2,6 @@
  * Created by ianwallis on 15/09/2015.
  */
 
-
 requirejs.config({
 	baseUrl: '/js',
 	paths: {
