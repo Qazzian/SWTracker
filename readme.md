@@ -32,5 +32,5 @@ There isn't any server side code yet so you will need to find another solution f
 
 ## Grunt tasks
 
-In most cases you will want to run the default task for a one off build or `doWatch`, which will run all the tasks and then watch for file changes, running the appropriate tasks on the fly. For a full list of available tasks run `grunt --help` in the project root.
+In most cases you will want to run the default task for a one off build or `watch`, which will run all the tasks and then watch for file changes, running the appropriate tasks on the fly. For a full list of available tasks run `grunt --help` in the project root.
 

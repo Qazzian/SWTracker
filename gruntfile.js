@@ -82,12 +82,14 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			options: {
+				atBegin: true,
 				interrupt: true
 			},
 			grunt: {
 				files: [
 					'gruntfile.js'
-				]
+				],
+				tasks: []
 			},
 			html: {
 				files: [
@@ -102,7 +104,6 @@ module.exports = function(grunt) {
 					'!public/js/lib/**/*.js',
 					'.jshintrc',
 					'bower.json'
-
 				],
 				tasks: ['scriptTasks']
 			},
@@ -119,7 +120,6 @@ module.exports = function(grunt) {
 
 	// Custom tasks.
 	grunt.registerTask('default', 'Alias for allTasks.', ['allTasks']);
-	grunt.registerTask('doWatch', 'Run allTasks then watch for changes.', ['allTasks', 'watch']);
 
 	grunt.registerTask('allTasks', 'Run all the tasks.', ['htmlTasks', 'scriptTasks', 'styleTasks']);
 	grunt.registerTask('htmlTasks', 'run all html related tasks.', ['htmllint']);
