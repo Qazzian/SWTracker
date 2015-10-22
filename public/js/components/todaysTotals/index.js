@@ -9,18 +9,16 @@ define(function(require){
 	function TodaysTotalsView(){
 
 		this.init = function(){
-			this.template = require('!text')
+			this.template = require('!text');
 		};
 
 		this.render = function(){
 
 		};
 
-
 		this.init();
 	}
 
 	return TodaysTotalsView;
-
 
 });

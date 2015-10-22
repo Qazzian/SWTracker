@@ -6,7 +6,8 @@ module.exports = function(grunt) {
 	var jsFiles = [
 		'gruntfile.js',
 		'public/js/**/*.js',
-		'!public/js/lib/**/*.js'
+		'!public/js/lib/**/*.js',
+		'!public/jspm_packages/**/*'
 	];
 
 	//var Log = require('grunt-legacy-log').Log;
@@ -41,7 +42,8 @@ module.exports = function(grunt) {
 					htmllintrc: './.htmllintrc'
 				},
 				src: [
-					'public/**/*.html'
+					'public/**/*.html',
+					'!public/jspm_packages/**/*'
 				]
 			}
 		},
@@ -57,9 +59,6 @@ module.exports = function(grunt) {
 			},
 			all: jsFiles
 
-		},
-		requirejs: {
-			// TODO
 		},
 		scsslint: {
 			allFiles: [
@@ -85,6 +84,7 @@ module.exports = function(grunt) {
 			html: {
 				files: [
 					'public/**/*.html',
+					'!public/jspm_packages/**/*',
 					'.htmllintrc'
 				],
 				tasks: ['htmlTasks']
@@ -92,7 +92,7 @@ module.exports = function(grunt) {
 			scripts: {
 				files: [
 					'public/js/**/*.js',
-					'!public/js/lib/**/*.js',
+					'!public/jspm_packages/**/*',
 					'.jshintrc'
 				],
 				tasks: ['scriptTasks']
@@ -100,6 +100,7 @@ module.exports = function(grunt) {
 			styles: {
 				files: [
 					'public/sass/**/*.scss',
+					'!public/jspm_packages/**/*',
 					'.scss-lint.yml',
 					'compassConfig.rb'
 				],
