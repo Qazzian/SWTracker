@@ -39,20 +39,25 @@ define(function(require){
 
 	var FOOD_CATEGORIES = ['SYNS', 'HOA', 'HOB', 'FREE'];
 
+	var templates = {
+		totals: $('.totals').html(),
+		planTypes: $('.swt-plan-type-section').html(),
+		foodList: $('.swt-food-list-section').html()
+	};
+
 	// example data
 
 	var userData = {
 		totals: {
 			syns: 15,
-			hea: 1,
-			heb: 0
+			hoa: 1,
+			hob: 0
 		},
 		planType: 'RED',
 
 		foodItems: [
 			new FoodItem('HOA', 'Example Healthy Option A', '20g', 0),
 			new FoodItem('HOB', 'Example Halthy Option B', 10, 0)
-
 		]
 	};
 
@@ -62,6 +67,11 @@ define(function(require){
 		this.amount = amount || 0;
 		this.syns = syns || 0;
 	}
+
+	$(document).ready(function(){
+		var renderedTotals = mustache.render(templates.totals, userData.totals);
+		$('.totals').html(renderedTotals);
+	});
 
 	return {
 		SW_PLANS: SW_PLANS,
