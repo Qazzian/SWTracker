@@ -16,6 +16,7 @@
     "grunt-htmllint": "^0.2.7",
     "grunt-jscs": "^2.1.0",
     "grunt-scss-lint": "^0.3.8",
+    "jspm": "^0.16.13",
     "requirejs": "^2.1.20"
   },
   "scripts": {
@@ -28,5 +29,19 @@
     "syns"
   ],
   "author": "Qazzian@gmail.com",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "jspm": {
+    "directories": {
+      "baseURL": "public"
+    },
+    "configFile": "public/jspmConfig.js",
+    "dependencies": {
+      "jquery": "github:components/jquery@^2.1.4"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
 }
