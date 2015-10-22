@@ -18,15 +18,6 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		bower: {
-			dev: {
-				dest: 'public/',
-				/*jscs:disable requireCamelCaseOrUpperCaseIdentifiers*/
-				js_dest: 'public/js/lib',
-				css_dest: 'public/sass/lib'
-				/*jscs:enable requireCamelCaseOrUpperCaseIdentifiers*/
-			}
-		},
 		compass: {
 			options: {
 				config: 'compassConfig.rb'
@@ -102,8 +93,7 @@ module.exports = function(grunt) {
 				files: [
 					'public/js/**/*.js',
 					'!public/js/lib/**/*.js',
-					'.jshintrc',
-					'bower.json'
+					'.jshintrc'
 				],
 				tasks: ['scriptTasks']
 			},
@@ -127,7 +117,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('styleTasks', 'run all scss and css related tasks.\n', ['compass:dev', 'scsslint']);
 
 	// Load plugins.
-	grunt.loadNpmTasks('grunt-bower');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-jshint');

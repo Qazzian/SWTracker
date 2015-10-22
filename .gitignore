@@ -1,6 +1,4 @@
 .sass-cache/
-bower_components
 node_modules
 public/css
-public/js/lib
 public/jspm_packages
