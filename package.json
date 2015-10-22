@@ -36,7 +36,9 @@
     },
     "configFile": "public/jspmConfig.js",
     "dependencies": {
-      "jquery": "github:components/jquery@^2.1.4"
+      "jquery": "github:components/jquery@^2.1.4",
+      "lodash": "npm:lodash@^3.10.1",
+      "mustache": "github:janl/mustache.js@^2.2.0"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
