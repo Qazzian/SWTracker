@@ -1,0 +1,12 @@
+.totals {
+	display: flex;
+	margin: 1ex 0;
+
+	div {
+		@include table-style-borders(1px, solid, $nav-border-color);
+
+		flex: 1 1 0;
+		text-align: center;
+	}
+
+}

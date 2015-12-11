@@ -9,6 +9,8 @@ define(function(require){
 		$ = require('jquery'),
 		mustache = require('mustache');
 
+	var TodaysTotals = require('js/components/todaysTotals/totals.js');
+
 	// Some global data
 	var SW_PLANS = {
 		RED: {
@@ -40,7 +42,6 @@ define(function(require){
 	var FOOD_CATEGORIES = ['SYNS', 'HOA', 'HOB', 'FREE'];
 
 	var templates = {
-		totals: $('.totals').html(),
 		planTypes: $('.swt-plan-type-section').html(),
 		foodList: $('.swt-food-list-section').html()
 	};
@@ -69,8 +70,12 @@ define(function(require){
 	}
 
 	$(document).ready(function(){
-		var renderedTotals = mustache.render(templates.totals, userData.totals);
-		$('.totals').html(renderedTotals);
+		var totalsComp = new TodaysTotals();
+		var initPromise = totalsComp.init();
+		initPromise.then(function(){
+			var renderedTotals = totalsComp.render(userData.totals);
+			$('.totals').replaceWith(renderedTotals);
+		});
 	});
 
 	return {
