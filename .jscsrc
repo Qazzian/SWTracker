@@ -36,7 +36,7 @@
   "requireCapitalizedConstructors": true,
   "requireDotNotation": true,
   "requireCurlyBraces": ["if", "else", "for", "while", "do", "try", "catch", "case", "default"],
-  "requireSpaceAfterKeywords": ["if", "else", "for", "while", "do", "switch", "return", "try", "catch"],
+  "requireSpaceAfterKeywords": ["else", "return", "try"],
   "safeContextKeyword": ["that", "self"],
   "validateLineBreaks": "LF",
   "validateQuoteMarks": "'",
