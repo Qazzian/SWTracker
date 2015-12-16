@@ -1,0 +1,8 @@
+<section class="swt-plan-type-section">
+	<label for="swt-plan-type-select">Plan Type</label>
+	<select name="swt-plan-type" id="swt-plan-type-select">
+		{{#options}}
+			<option value="{{id}}" {{#selected}}selected="selected"{{/selected}}>{{name}}</option>
+		{{/options}}
+	</select>
+</section>
