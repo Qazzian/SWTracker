@@ -19,6 +19,7 @@ System.config({
     "core-js": "npm:core-js@1.2.2",
     "css": "github:systemjs/plugin-css@0.1.20",
     "jquery": "github:components/jquery@2.1.4",
+    "knockout": "github:knockout/knockout@3.4.0",
     "lodash": "npm:lodash@3.10.1",
     "mustache": "github:janl/mustache.js@2.2.0",
     "text": "github:systemjs/plugin-text@0.0.3",
