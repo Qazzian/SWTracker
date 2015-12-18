@@ -67,9 +67,6 @@ module.exports = function(grunt) {
 			all: jsFiles
 
 		},
-		requirejs: {
-			// TODO
-		},
 		scsslint: {
 			allFiles: [
 				'public/sass/**/*.scss',
