@@ -118,7 +118,7 @@ module.exports = function(grunt) {
 	// Custom tasks.
 	grunt.registerTask('default', 'Alias for allTasks.', ['allTasks']);
 
-	grunt.registerTask('allTasks', 'Run all the tasks.', ['htmlTasks', 'scriptTasks', 'styleTasks']);
+	grunt.registerTask('allTasks', 'Run all the tasks.', ['bower', 'htmlTasks', 'scriptTasks', 'styleTasks']);
 	grunt.registerTask('htmlTasks', 'run all html related tasks.', ['htmllint']);
 	grunt.registerTask('scriptTasks', 'run all js related tasks.', ['jshint', 'jscs']);
 	grunt.registerTask('styleTasks', 'run all scss and css related tasks.\n', ['compass:dev', 'scsslint']);
