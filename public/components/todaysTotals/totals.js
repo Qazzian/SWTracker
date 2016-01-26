@@ -8,6 +8,7 @@ define(function(require) {
 	'use strict';
 
 	var mustache = require('mustache');
+	var can = require('can');
 
 	function TodaysTotalsView() {
 		var self = this;

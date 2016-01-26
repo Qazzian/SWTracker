@@ -16,6 +16,7 @@ System.config({
   map: {
     "babel": "npm:babel-core@5.8.25",
     "babel-runtime": "npm:babel-runtime@5.8.25",
+    "can": "npm:can@2.3.10",
     "core-js": "npm:core-js@1.2.2",
     "css": "github:systemjs/plugin-css@0.1.20",
     "jquery": "github:components/jquery@2.1.4",
@@ -39,6 +40,15 @@ System.config({
       "util": "npm:util@0.10.3"
     },
     "npm:babel-runtime@5.8.25": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:can-simple-dom@0.2.23": {
+      "micro-location": "npm:micro-location@0.1.5"
+    },
+    "npm:can@2.3.10": {
+      "can-simple-dom": "npm:can-simple-dom@0.2.23",
+      "jquery": "npm:jquery@2.1.4",
+      "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:core-js@1.2.2": {
