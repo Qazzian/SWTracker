@@ -1,50 +1,37 @@
-/**
- * Created by ianwallis on 16/10/2015.
- */
-
 /*global Promise, System*/
 
-define(function(require) {
-	'use strict';
+'use strict';
 
-	var mustache = require('mustache');
-	var can = require('can');
+import {default as can} from 'can';
 
-	function TodaysTotalsView() {
-		var self = this;
+import template from './totals.mustache!text';
+import './_totals.scss!';
 
-		console.info("ARGS: ", arguments);
-		this.init = function() {
-			this.initPromise = Promise.all([
-				System.import('components/todaysTotals/totals.mustache!text')
-			]);
+try {
+	var TodaysTotalsView = can.Component.extend({
+		tag: 'todaysTotals',
+		template: can.stache(template),
+		viewModel: can.Map({
+			hoa: 0,
+			hob: 0,
+			syns: 0
+		})
+	});
+}
+catch (err) {
+	console.error(err);
+	debugger;
+}
+/**
+ * Daily totals view.
+ * Needs the totals data passed to it
+ *
+ * @Tag todaysTotals
+ * @param hoa {Number} - Number of Healthy option A portions.
+ * @param hob {Number}} - Number of Healthy option B portions.
+ * @param syns {Number} - Number of Syns consumed.
+ */
 
-			this.initPromise.then(function(deps) {
-				// Deps = [totals.mustache, totals.css]
-				if(deps) {
-					self.template = deps[0];
-					mustache.parse(self.template);
-				}
-			});
 
-			return this.initPromise;
-		};
 
-		/**
-		 * Returns the completed totals HTML
-		 *
-		 * @param data {Object}
-		 * @param data.hoa {Number} - Number of Healthy option A portions.
-		 * @param data.hob {Number}} - Number of Healthy option B portions.
-		 * @param data.syns {Number} - Number of Syns consumed.
-		 * @return {string} - The html representing the totals data.
-		 */
-		this.render = function(data) {
-			return mustache.render(this.template, data);
-		};
-
-	}
-
-	return TodaysTotalsView;
-
-});
+export {TodaysTotalsView as default};

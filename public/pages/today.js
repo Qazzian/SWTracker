@@ -2,64 +2,81 @@
  * Created by ianwallis on 14/09/2015.
  */
 
-define(function(require){
-	'use strict';
+'use strict';
 
-	var _ = require('lodash'),
-		$ = require('jquery'),
-		mustache = require('mustache');
+import '/sass/styles.scss!';
+import '/sass/_page_today.scss!';
 
-	var TodaysTotals = require('components/todaysTotals/totals.js');
-	var PlanSelector = require('components/planSelector/planSelector.js');
+// External libraries
+import {default as can} from 'can';
+import {default as stache} from 'can/dist/cjs/view/stache/stache';
+//import {default as mustache} from 'mustache';
+import {default as _} from 'lodash';
 
-	var UserData = require('models/UserData.js');
+// internal deps
+import {default as TotalsComp} from 'components/todaysTotals/totals.js';
+import {default as PlanSelector} from 'components/planSelector/planSelector.js';
 
-	// Some global data
-	var SW_PLANS = require('models/SlimmingWorldPlans.js');
+// Some global data
+import {default as UserData} from 'models/UserData.js';
+import {default as SW_PLANS} from 'models/SlimmingWorldPlans.js';
+
+import pageTemplate from './today.mustache!text';
+
+
+
+try {
 
 	var FOOD_CATEGORIES = ['SYNS', 'HOA', 'HOB', 'FREE'];
 
 	var userData = new UserData();
 
-	function TodayPageController(){
+	var renderPage = can.stache(pageTemplate);
+
+	function TodayPageController() {
 		var self = this;
 
-		this.totalsView = new TodaysTotals();
-		this.planSelector = new PlanSelector();
+		//this.totalsView = new TodaysTotals();
+		//this.planSelector = new PlanSelector();
 
-		this.initDeps = function() {
-			return Promise.all([
-				self.totalsView.init(),
-				self.planSelector.init()
-			]);
-		};
+		//this.initDeps = function() {
+		//	return Promise.all([
+		//		//self.totalsView.init(),
+		//		//self.planSelector.init()
+		//	]);
+		//};
 
-		this.onReady = function(){
+		this.onReady = function() {
 
-			var planModel = {
-				options: []
-			};
+			//var planModel = {
+			//	options: []
+			//};
+			//
+			//_.each(SW_PLANS, function(value) {
+			//	var plan = _.clone(value);
+			//	if(plan.id === userData.planType) {
+			//		plan.selected = true;
+			//	}
+			//	planModel.options.push(plan);
+			//});
 
-			_.each(SW_PLANS, function(value){
-				var plan = _.clone(value);
-				if (plan.id === userData.planType) {
-					plan.selected = true;
-				}
-				planModel.options.push(plan);
-			});
+			//self.initDeps().then(function() {
+			var $pageContentArea = $('#main');
+			var pageContent = renderPage(userData.totals);
+			$pageContentArea.html(pageContent);
 
-			self.initDeps().then(function(){
-				$('.totals').replaceWith(self.totalsView.render(userData.totals));
-				$('.swt-plan-type-section').replaceWith(self.planSelector.render(planModel));
-			});
+				//$pageHtml.find('.swt-plan-type-section').replaceWith(self.planSelector.render(planModel));
+			//});
 		};
 	}
 
-	$(document).ready(function(){
+	$(document).ready(function() {
 		var controller = new TodayPageController();
 		controller.onReady();
 	});
 
-	return TodayPageController;
-
-});
+}
+catch (err) {
+	console.error(err);
+	debugger;
+}
