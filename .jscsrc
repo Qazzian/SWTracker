@@ -1,6 +1,7 @@
 // More info https://github.com/jscs-dev/node-jscs
 
 {
+  "esnext" : true,
   "disallowSpacesInNamedFunctionExpression": {
 	"beforeOpeningRoundBrace": true
   },
@@ -29,7 +30,6 @@
   "requireParenthesesAroundIIFE": true,
   "requireSpacesInConditionalExpression": true,
   "requireBlocksOnNewline": true,
-  "requireCamelCaseOrUpperCaseIdentifiers": true,
   "requireCommaBeforeLineBreak": true,
   "requireSpaceBeforeBinaryOperators": true,
   "requireSpaceAfterBinaryOperators": true,
@@ -37,7 +37,7 @@
   "requireCapitalizedConstructors": true,
   "requireDotNotation": true,
   "requireCurlyBraces": ["if", "else", "for", "while", "do", "try", "catch", "case", "default"],
-  "requireSpaceAfterKeywords": ["if", "else", "for", "while", "do", "switch", "return", "try", "catch"],
+  "requireSpaceAfterKeywords": ["else", "return", "try"],
   "safeContextKeyword": ["that", "self"],
   "validateLineBreaks": "LF",
   "validateQuoteMarks": "'",

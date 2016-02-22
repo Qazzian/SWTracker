@@ -1,10 +1,13 @@
-@mixin table-style-borders($width: '1px', $style: 'solid', $color: '#000') {
-	border: $width $style $color;
-	border-width: $width $width $width 0;
+@import "./mixins/all";
+@import "./base/normalise";
 
-	&:first-of-type {
-		border-width: $width;
-	}
+/**
+ define some sensible defaults
+
+**/
+
+* {
+	border-color: $nav-border-color;
 }
 
 section {

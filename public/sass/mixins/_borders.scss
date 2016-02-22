@@ -1,0 +1,7 @@
+@mixin table-style-borders($width: '1px') {
+	border-width: $width $width $width 0;
+
+	&:first-of-type {
+		border-width: $width;
+	}
+}

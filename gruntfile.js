@@ -6,7 +6,8 @@ module.exports = function(grunt) {
 	var jsFiles = [
 		'gruntfile.js',
 		'public/js/**/*.js',
-		'!public/js/lib/**/*.js'
+		'!public/js/lib/**/*.js',
+		'!public/jspm_packages/**/*'
 	];
 
 	//var Log = require('grunt-legacy-log').Log;
@@ -18,15 +19,6 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		bower: {
-			dev: {
-				dest: 'public/',
-				/*jscs:disable requireCamelCaseOrUpperCaseIdentifiers*/
-				js_dest: 'public/js/lib',
-				css_dest: 'public/sass/lib'
-				/*jscs:enable requireCamelCaseOrUpperCaseIdentifiers*/
-			}
-		},
 		compass: {
 			options: {
 				config: 'compassConfig.rb'
@@ -50,7 +42,8 @@ module.exports = function(grunt) {
 					htmllintrc: './.htmllintrc'
 				},
 				src: [
-					'public/**/*.html'
+					'public/**/*.html',
+					'!public/jspm_packages/**/*'
 				]
 			}
 		},
@@ -66,9 +59,6 @@ module.exports = function(grunt) {
 			},
 			all: jsFiles
 
-		},
-		requirejs: {
-			// TODO
 		},
 		scsslint: {
 			allFiles: [
@@ -94,6 +84,7 @@ module.exports = function(grunt) {
 			html: {
 				files: [
 					'public/**/*.html',
+					'!public/jspm_packages/**/*',
 					'.htmllintrc'
 				],
 				tasks: ['htmlTasks']
@@ -101,15 +92,15 @@ module.exports = function(grunt) {
 			scripts: {
 				files: [
 					'public/js/**/*.js',
-					'!public/js/lib/**/*.js',
-					'.jshintrc',
-					'bower.json'
+					'!public/jspm_packages/**/*',
+					'.jshintrc'
 				],
 				tasks: ['scriptTasks']
 			},
 			styles: {
 				files: [
 					'public/sass/**/*.scss',
+					'!public/jspm_packages/**/*',
 					'.scss-lint.yml',
 					'compassConfig.rb'
 				],
@@ -127,7 +118,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('styleTasks', 'run all scss and css related tasks.\n', ['compass:dev', 'scsslint']);
 
 	// Load plugins.
-	grunt.loadNpmTasks('grunt-bower');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-jshint');

@@ -1,18 +1,3 @@
-
-
-.totals {
-	display: flex;
-	margin: 1ex 0;
-
-	div {
-		@include table-style-borders(1px, solid, $nav-border-color);
-
-		flex: 1 1 0;
-		text-align: center;
-	}
-
-}
-
 .swt-plan-type-section {
 	display: flex;
 	text-align: center;
@@ -25,6 +10,7 @@
 		flex: 1 2 0;
 	}
 }
+
 
 .swt-add-food-section {
 	display: flex;

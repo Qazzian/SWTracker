@@ -3,7 +3,7 @@
 <head>
 	<title>Slimming World Tracking</title>
 
-	<link rel="stylesheet" href="/css/styles.css"/>
+
 </head>
 <body>
 <header>
@@ -17,62 +17,7 @@
 </header>
 
 
-<div class="main">
-	<section class="totals">
-		<div>{{syns}} Syns</div>
-		<div>{{hoa}} A</div>
-		<div>{{hob}} B</div>
-	</section>
-
-	<section class="swt-plan-type-section">
-		<label for="swt-plan-type-select">Plan Type</label>
-		<select name="swt-plan-type" id="swt-plan-type-select">
-			<option value="plan_red">Red</option>
-			<option value="plan_green">Green</option>
-			<option value="plan_ee">Extra Easy</option>
-			<option value="plan_eesp">Extra Easy Speedy</option>
-		</select>
-	</section>
-
-	<section class="swt-add-food-section">
-		<input type="text" name="swt-add-food"/>
-		<button class="add-food-button" title="Add food">+</button>
-	</section>
-
-	<section class="swt-food-list-section">
-		<table>
-			<thead>
-			<tr>
-				<th>Cat</th>
-				<th>food</th>
-				<th>amount</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-				<td class="std-food-cat-a">A</td>
-				<td>Healthy Option A</td>
-				<td>-</td>
-			</tr>
-			<tr>
-				<td class="std-food-cat-b">B</td>
-				<td>Healthy Option B</td>
-				<td>-</td>
-			</tr>
-			<tr>
-				<td class="std-food-cat-free">F</td>
-				<td>Free Food</td>
-				<td>-</td>
-			</tr>
-			<tr>
-				<td class="std-food-cat-syn">{{x}}</td>
-				<td>Syn Food</td>
-				<td>-</td>
-			</tr>
-			</tbody>
-
-		</table>
-	</section>
+<div id="main">
 </div>
 
 
@@ -82,15 +27,12 @@
 
 <!-- TODO: Refactor to use a dependency management tool -->
 <!-- TODO: add common libraries -->
-<script type="text/javascript" src="js/lib/require.js"></script>
-<script type="text/javascript">
-	window.onload = function (e) {
-		require(['js/config.js'], function (config) {
-			require(['pages/today']);
-		});
-	};
-</script>
 
+<script src="jspm_packages/system.js"></script>
+<script src="jspmConfig.js"></script>
+<script>
+	System.import('pages/today.js');
+</script>
 
 </body>
 </html>

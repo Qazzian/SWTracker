@@ -3,6 +3,7 @@
   "jquery": true,
   "node": true,
   "curly": true,
+  "esnext": true,
   "eqeqeq": true,
   "forin": true,
   "freeze": true,
