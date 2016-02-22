@@ -1,11 +1,14 @@
+@import "./mixins/borders";
+
 nav ul {
 	display: flex;
 	flex-direction: row;
 
 	li {
-		@include table-style-borders(1px, solid, $nav-border-color);
+		@include table-style-borders(1px);
 
 		background-color: $nav-background-color;
+		border-style: solid;
 		flex: 1 1 0;
 		text-align: center;
 

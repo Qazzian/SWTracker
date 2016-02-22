@@ -1,10 +1,14 @@
+@import "/sass/mixins/all";
+
 .totals {
+	width: 100%;
 	display: flex;
 	margin: 1ex 0;
 
 	div {
-		@include table-style-borders(1px, solid, $nav-border-color);
+		@include table-style-borders(1px);
 
+		border-style: solid;
 		flex: 1 1 0;
 		text-align: center;
 		width: 100%;
