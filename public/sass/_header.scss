@@ -1,31 +1,39 @@
 @import "./mixins/borders";
 
-nav ul {
-	display: flex;
-	flex-direction: row;
-
-	li {
-		@include table-style-borders(1px);
-
-		background-color: $nav-background-color;
-		border-style: solid;
-		flex: 1 1 0;
-		text-align: center;
-
+nav {
+	& * {
+		border-color: $nav-border-color;
 	}
 
-	a {
-		display: block;
-		padding: 0.5ex 1ex;
+	ul {
+		display: flex;
+		flex-direction: row;
 
-		&,
-		&:hover,
-		&:focus,
-		&:active,
-		&:visited {
-			color: $nav-link-color;
-			text-decoration: none;
 
+
+		li {
+			@include table-style-borders(1px);
+
+			background-color: $nav-background-color;
+			border-style: solid;
+			flex: 1 1 0;
+			text-align: center;
+
+		}
+
+		a {
+			display: block;
+			padding: 0.5ex 1ex;
+
+			&,
+			&:hover,
+			&:focus,
+			&:active,
+			&:visited {
+				color: $nav-link-color;
+				text-decoration: none;
+
+			}
 		}
 	}
 }
