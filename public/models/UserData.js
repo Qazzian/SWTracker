@@ -26,7 +26,9 @@ define(function() {
 
 		this.foodItems = [
 			new FoodItem('HOA', 'Example Healthy Option A', '20g', 0),
-			new FoodItem('HOB', 'Example Halthy Option B', 10, 0)
+			new FoodItem('HOB', 'Example Halthy Option B', 10, 0),
+			new FoodItem('FREE', 'Free food, fruit etc', 1, 0),
+			new FoodItem('SYN', 'Synfull food, cake', '1 sclice', 3)
 		];
 	}
 
