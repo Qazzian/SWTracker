@@ -13,9 +13,10 @@ import {default as stache} from 'can/dist/cjs/view/stache/stache';
 //import {default as mustache} from 'mustache';
 import {default as _} from 'lodash';
 
-// internal deps
+// Components
 import {default as TotalsComp} from 'components/todaysTotals/totals.js';
 import {default as PlanSelector} from 'components/planSelector/planSelector.js';
+import {default as FoodTable} from 'components/foodtable/foodTable.js';
 
 // Some global data
 import {default as UserData} from 'models/UserData.js';
@@ -62,7 +63,7 @@ try {
 
 			//self.initDeps().then(function() {
 			var $pageContentArea = $('#main');
-			var pageContent = renderPage(userData.totals);
+			var pageContent = renderPage(userData);
 			$pageContentArea.html(pageContent);
 
 				//$pageHtml.find('.swt-plan-type-section').replaceWith(self.planSelector.render(planModel));
