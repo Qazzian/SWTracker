@@ -1,0 +1,22 @@
+<table>
+	<thead>
+	<tr>
+		<th>Cat</th>
+		<th>Food</th>
+		<th>Amount</th>
+		<th>Syns</th>
+	</tr>
+	</thead>
+	<tbody>
+
+	{{#foodItems}}
+		<tr>
+			<td class="std-food-cat-a">{{category}}</td>
+			<td>{{description}}</td>
+			<td>{{amount}}</td>
+			<td>{{syns}}</td>
+		</tr>
+	{{/foodItems}}
+
+	</tbody>
+</table>
