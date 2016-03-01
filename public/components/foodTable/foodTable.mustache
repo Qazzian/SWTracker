@@ -1,21 +1,30 @@
-<table>
+<table class="foodTable">
 	<thead>
 	<tr>
-		<th>Cat</th>
-		<th>Food</th>
-		<th>Amount</th>
-		<th>Syns</th>
+		<th class="foodTable__category">Cat</th>
+		<th class="foodTable__description">Food</th>
+		<th class="foodTable__amount">Amount</th>
+		<th class="foodTable__syns">Syns</th>
 	</tr>
 	</thead>
 	<tbody>
 
 	{{#foodItems}}
 		<tr>
-			<td class="std-food-cat-a">{{category}}</td>
-			<td>{{description}}</td>
-			<td>{{amount}}</td>
-			<td>{{syns}}</td>
+			<td class="foodTable__category">{{category}}</td>
+			<td class="foodTable__description">{{description}}</td>
+			<td class="foodTable__amount">{{amount}}</td>
+			<td class="foodTable__syns">{{syns}}</td>
 		</tr>
+	{{/foodItems}}
+
+	{{^foodItems}}
+		<tr>
+			<td colspan="4" class="foodTable__emptyMessage">
+				<p>No data</p>
+			</td>
+		</tr>
+
 	{{/foodItems}}
 
 	</tbody>

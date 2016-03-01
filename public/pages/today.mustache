@@ -1,16 +1,15 @@
+<div>
+	<todaysTotals class="totals" {hoa}="{{totals.hoa}}" {hob}="{{totals.hob}}" {syns}="{{totals.syns}}" />
 
-<todaysTotals class="totals" {hoa}="{{totals.hoa}}" {hob}="{{totals.hob}}" {syns}="{{totals.syns}}" />
+	<div class="swt-plan-type-section">
+	</div>
 
+	<div class="swt-add-food-section">
+		<input type="text" name="swt-add-food"/>
+		<button class="add-food-button" title="Add food">+</button>
+	</div>
 
-
-<div class="swt-plan-type-section">
-</div>
-
-<div class="swt-add-food-section">
-	<input type="text" name="swt-add-food"/>
-	<button class="add-food-button" title="Add food">+</button>
-</div>
-
-<div class="swt-food-list-section">
-	<foodTable {foodItems}="{{foodItems}}" />
+	<div class="swt-food-list-section">
+		<foodTable />
+	</div>
 </div>
