@@ -1,15 +1,13 @@
 @import "./mixins/borders";
 
 nav {
-	& * {
+	* {
 		border-color: $nav-border-color;
 	}
 
 	ul {
 		display: flex;
 		flex-direction: row;
-
-
 
 		li {
 			@include table-style-borders(1px);
@@ -20,20 +18,20 @@ nav {
 			text-align: center;
 
 		}
+	}
 
-		a {
-			display: block;
-			padding: 0.5ex 1ex;
+	a {
+		display: block;
+		padding: 0.5ex 1ex;
 
-			&,
-			&:hover,
-			&:focus,
-			&:active,
-			&:visited {
-				color: $nav-link-color;
-				text-decoration: none;
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&:visited {
+			color: $nav-link-color;
+			text-decoration: none;
 
-			}
 		}
 	}
 }
