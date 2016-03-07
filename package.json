@@ -15,7 +15,6 @@
     "grunt-jscs": "^2.1.0",
     "grunt-scss-lint": "^0.3.8",
     "jspm": "^0.16.30",
-    "requirejs": "^2.1.20"
   },
   "scripts": {
     "prepublish": "bundler install && jspm install && grunt",
