@@ -4,8 +4,8 @@
 
 'use strict';
 
-import '/sass/styles.scss!';
-import '/sass/_page_today.scss!';
+import 'sass/styles.scss!';
+import './_page_today.scss!';
 
 // External libraries
 import {default as can} from 'can';
