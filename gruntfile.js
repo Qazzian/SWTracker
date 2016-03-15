@@ -60,6 +60,16 @@ module.exports = function(grunt) {
 			all: jsFiles
 
 		},
+		jspm: {
+			options: {
+				sfx: true,
+				minify: false
+			},
+			dist: {
+				src: 'public/pages/today.js',
+				dest: 'public-build/today.min.js'
+			}
+		},
 		scsslint: {
 			allFiles: [
 				'public/sass/**/*.scss',
@@ -125,5 +135,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-htmllint');
 	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-scss-lint');
+	grunt.loadNpmTasks('grunt-jspm');
 
 };

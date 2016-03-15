@@ -13,8 +13,9 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-htmllint": "^0.2.7",
     "grunt-jscs": "^2.1.0",
+    "grunt-jspm": "^0.1.1",
     "grunt-scss-lint": "^0.3.8",
-    "jspm": "^0.16.30",
+    "jspm": "^0.16.30"
   },
   "scripts": {
     "prepublish": "bundler install && jspm install && grunt",
