@@ -20,19 +20,13 @@
 <div id="main">
 </div>
 
-
 <footer>
 	Copyright Qazzian. SlimmingWorld trademarks etc.
 </footer>
 
-<!-- TODO: Refactor to use a dependency management tool -->
-<!-- TODO: add common libraries -->
-
-<script src="jspm_packages/system.js"></script>
-<script src="jspmConfig.js"></script>
-<script>
-	System.import('pages/today.js');
-</script>
+{{#scripts}}
+<script src="{{{.}}}"></script>
+{{/scripts}}
 
 </body>
 </html>

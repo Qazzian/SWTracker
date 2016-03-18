@@ -1,7 +1,26 @@
+/* jshint node: true */
+/* globals require */
 
+'use strict';
+
+var fs = require('fs');
+var exec = require('child_process').exec;
+
+var mustache = require('mustache');
+
+// Scripts to include in the html file
+var HTML_SCRIPTS = {
+	DEV: [
+		'jspm_packages/system.js',
+		'jspmConfig.js',
+		'init.js'
+	],
+	PROD: [
+		'today.min.js'
+	]
+};
 
 module.exports = function(grunt) {
-	'use strict';
 
 	var jsFiles = [
 		'gruntfile.js',
@@ -48,26 +67,31 @@ module.exports = function(grunt) {
 			}
 		},
 		jscs: {
-			options: {
-
-			},
+			options: {},
 			all: jsFiles
 		},
 		jshint: {
-			options: {
-
-			},
+			options: {},
 			all: jsFiles
 
 		},
 		jspm: {
-			options: {
-				sfx: true,
-				minify: false
+			'./public-build/today.min.js': 'public/pages/today.js',
+			dev: {
+				options: {
+					sfx: true,
+					mangle: false,
+					minify: false,
+					sourceMaps: true
+				}
 			},
-			dist: {
-				src: 'public/pages/today.js',
-				dest: 'public-build/today.min.js'
+			prod: {
+				options: {
+					sfx: true,
+					mangle: true,
+					minify: true,
+					sourceMaps: false
+				}
 			}
 		},
 		scsslint: {
@@ -93,15 +117,15 @@ module.exports = function(grunt) {
 			},
 			html: {
 				files: [
-					'public/**/*.html',
-					'!public/jspm_packages/**/*',
+					'public/index.mustache',
 					'.htmllintrc'
 				],
 				tasks: ['htmlTasks']
 			},
 			scripts: {
 				files: [
-					'public/js/**/*.js',
+					'public/**/*.js',
+					'public/**/*.mustache',
 					'!public/jspm_packages/**/*',
 					'.jshintrc'
 				],
@@ -109,7 +133,7 @@ module.exports = function(grunt) {
 			},
 			styles: {
 				files: [
-					'public/sass/**/*.scss',
+					'public/**/*.scss',
 					'!public/jspm_packages/**/*',
 					'.scss-lint.yml',
 					'compassConfig.rb'
@@ -123,18 +147,53 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', 'Alias for allTasks.', ['allTasks']);
 
 	grunt.registerTask('allTasks', 'Run all the tasks.', ['htmlTasks', 'scriptTasks', 'styleTasks']);
-	grunt.registerTask('htmlTasks', 'run all html related tasks.', ['htmllint']);
-	grunt.registerTask('scriptTasks', 'run all js related tasks.', ['jshint', 'jscs']);
-	grunt.registerTask('styleTasks', 'run all scss and css related tasks.\n', ['compass:dev', 'scsslint']);
+	grunt.registerTask('htmlTasks', 'run all html related tasks.', ['htmllint', 'build-html:dev', 'build-html:prod']);
+	grunt.registerTask('scriptTasks', 'run all js related tasks.', ['jshint', 'jscs', 'jspm:dev']);
+	grunt.registerTask('styleTasks', 'run all scss and css related tasks.', ['compass:dev', 'scsslint', 'jspm:dev']);
+
+	grunt.registerTask('build', 'build for production environment.',
+		['clean', 'jspm:prod', 'build-html:prod']);
+	grunt.registerTask('build-dev', 'build with debugger settings & source maps.\n',
+		['clean', 'jspm:dev', 'build-html:prod']);
 
 	// Load plugins.
-	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-htmllint');
-	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-scss-lint');
+	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-jspm');
+
+	grunt.registerTask('clean', 'Remove the build directory', function() {
+
+		function puts(error, stdout, stderr) {
+			console.error(error);
+			console.error(stderr);
+			console.log(stdout);
+		}
+
+		exec('rm -rf public-build', puts);
+	});
+
+	function renderIndexTemplate(output, scripts) {
+		var template = fs.readFileSync('public/index.mustache', 'utf8');
+		var html = mustache.render(template, {scripts: scripts});
+		fs.writeFileSync(output, html, 'utf8');
+	}
+
+	grunt.registerTask('build-html:dev', 'Create the index.html file for development', function() {
+		renderIndexTemplate('public/index.html', HTML_SCRIPTS.DEV);
+	});
+
+	grunt.registerTask('build-html:prod', 'Create the index.html file for development', function() {
+		var buildDir = 'public-build';
+		var stats = fs.lstatSync(buildDir);
+
+		if(!stats.isDirectory()) {
+			fs.mkdirSync(buildDir);
+		}
+		renderIndexTemplate('public-build/index.html', HTML_SCRIPTS.PROD);
+	});
 
 };
