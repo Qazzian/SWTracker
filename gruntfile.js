@@ -76,13 +76,15 @@ module.exports = function(grunt) {
 
 		},
 		jspm: {
-			'./public-build/today.min.js': 'public/pages/today.js',
 			dev: {
 				options: {
 					sfx: true,
 					mangle: false,
 					minify: false,
 					sourceMaps: true
+				},
+				files: {
+					'./public-build/today.min.js': 'public/pages/today.js'
 				}
 			},
 			prod: {
@@ -91,6 +93,9 @@ module.exports = function(grunt) {
 					mangle: true,
 					minify: true,
 					sourceMaps: false
+				},
+				files: {
+					'./public-build/today.min.js': 'public/pages/today.js'
 				}
 			}
 		},
@@ -187,12 +192,15 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('build-html:prod', 'Create the index.html file for development', function() {
-		var buildDir = 'public-build';
-		var stats = fs.lstatSync(buildDir);
+		var buildDir = './public-build';
+		var stats;
 
-		if(!stats.isDirectory()) {
+		try {
+			stats = fs.statSync(buildDir);
+		} catch(err) {
 			fs.mkdirSync(buildDir);
 		}
+
 		renderIndexTemplate('public-build/index.html', HTML_SCRIPTS.PROD);
 	});
 
