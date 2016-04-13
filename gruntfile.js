@@ -66,6 +66,8 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+		jasmine: {
+		},
 		jscs: {
 			options: {},
 			all: jsFiles
@@ -97,6 +99,11 @@ module.exports = function(grunt) {
 				files: {
 					'./public-build/today.min.js': 'public/pages/today.js'
 				}
+			}
+		},
+		karma: {
+			unit: {
+				configFile: 'karma.conf.js'
 			}
 		},
 		scsslint: {
@@ -151,10 +158,14 @@ module.exports = function(grunt) {
 	// Custom tasks.
 	grunt.registerTask('default', 'Alias for allTasks.', ['allTasks']);
 
-	grunt.registerTask('allTasks', 'Run all the tasks.', ['htmlTasks', 'scriptTasks', 'styleTasks']);
+	grunt.registerTask('allTasks', 'Lint and build the html, css and js.', ['htmlTasks', 'scriptTasks', 'styleTasks']);
 	grunt.registerTask('htmlTasks', 'run all html related tasks.', ['htmllint', 'build-html:dev', 'build-html:prod']);
-	grunt.registerTask('scriptTasks', 'run all js related tasks.', ['jshint', 'jscs', 'jspm:dev']);
+	grunt.registerTask('scriptTasks', 'run all js related tasks.', ['karma', 'jshint', 'jscs', 'jspm:dev']);
 	grunt.registerTask('styleTasks', 'run all scss and css related tasks.', ['compass:dev', 'scsslint', 'jspm:dev']);
+
+	grunt.registerTask('test', 'Run all the tests.', function() {
+		console.info('TODO');
+	});
 
 	grunt.registerTask('build', 'build for production environment.',
 		['clean', 'jspm:prod', 'build-html:prod']);
@@ -163,12 +174,14 @@ module.exports = function(grunt) {
 
 	// Load plugins.
 	grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-contrib-jasmine');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-htmllint');
-	grunt.loadNpmTasks('grunt-scss-lint');
 	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-jspm');
+	grunt.loadNpmTasks('grunt-karma');
+	grunt.loadNpmTasks('grunt-scss-lint');
 
 	grunt.registerTask('clean', 'Remove the build directory', function() {
 

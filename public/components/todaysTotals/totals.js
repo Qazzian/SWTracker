@@ -3,6 +3,7 @@
 'use strict';
 
 import {default as can} from 'can';
+import {default as stache} from 'can/dist/cjs/view/stache/stache';
 
 import template from './totals.mustache!text';
 import './_totals.scss!';
@@ -10,7 +11,7 @@ import './_totals.scss!';
 try {
 	var TodaysTotalsView = can.Component.extend({
 		tag: 'todaysTotals',
-		template: can.stache(template),
+		template: stache(template),
 		viewModel: can.Map({
 			hoa: 0,
 			hob: 0,
@@ -31,7 +32,5 @@ catch (err) {
  * @param hob {Number}} - Number of Healthy option B portions.
  * @param syns {Number} - Number of Syns consumed.
  */
-
-
 
 export {TodaysTotalsView as default};
