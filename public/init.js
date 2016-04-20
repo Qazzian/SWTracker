@@ -1,4 +1,4 @@
 /**
  * List top level javascript files here
  */
-System.import('pages/today.js');
+System.import('today/today.js');
