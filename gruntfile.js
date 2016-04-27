@@ -86,7 +86,7 @@ module.exports = function(grunt) {
 					sourceMaps: true
 				},
 				files: {
-					'./public-build/today.min.js': 'public/pages/today.js'
+					'./public-build/today.min.js': 'public/today/today.js'
 				}
 			},
 			prod: {
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
 					sourceMaps: false
 				},
 				files: {
-					'./public-build/today.min.js': 'public/pages/today.js'
+					'./public-build/today.min.js': 'public/today/today.js'
 				}
 			}
 		},
