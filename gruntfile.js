@@ -158,25 +158,24 @@ module.exports = function(grunt) {
 	// Custom tasks.
 	grunt.registerTask('default', 'Alias for allTasks.', ['allTasks']);
 
+	grunt.registerTask('build', 'build for production environment.',
+		['clean', 'jspm:prod', 'build-html:prod']);
+	grunt.registerTask('build-dev', 'build with debugger settings & source maps.',
+		['clean', 'jspm:dev', 'build-html:prod']);
+	grunt.loadNpmTasks('grunt-contrib-watch');
+
 	grunt.registerTask('allTasks', 'Lint and build the html, css and js.', ['htmlTasks', 'scriptTasks', 'styleTasks']);
 	grunt.registerTask('htmlTasks', 'run all html related tasks.', ['htmllint', 'build-html:dev', 'build-html:prod']);
 	grunt.registerTask('scriptTasks', 'run all js related tasks.', ['karma', 'jshint', 'jscs', 'jspm:dev']);
 	grunt.registerTask('styleTasks', 'run all scss and css related tasks.', ['compass:dev', 'scsslint', 'jspm:dev']);
-
-	grunt.registerTask('test', 'Run all the tests.', function() {
+	grunt.registerTask('test', 'Run all the tests.\n', function() {
 		console.info('TODO');
 	});
-
-	grunt.registerTask('build', 'build for production environment.',
-		['clean', 'jspm:prod', 'build-html:prod']);
-	grunt.registerTask('build-dev', 'build with debugger settings & source maps.\n',
-		['clean', 'jspm:dev', 'build-html:prod']);
 
 	// Load plugins.
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-htmllint');
 	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-jspm');
