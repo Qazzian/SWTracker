@@ -3,7 +3,7 @@ module.exports = function(config) {
 	'use strict';
 	config.set({
 		autoWatch: true,
-		singleRun: true,
+		singleRun: false,
 
 		// logLevel: config.LOG_DEBUG,
 
@@ -18,15 +18,11 @@ module.exports = function(config) {
 		jspm: {
 			config: './public/jspmConfig.js',
 			loadFiles: [
-				'./public/components/**/*.spec.js',
-				'./public/models/**/*.spec.js',
-				'./public/pages/**/*.spec.js'
+				'./public/today/**/*.spec.js',
+				'./public/models/**/*.spec.js'
 			],
 			serveFiles: [
-				'./public/components/**/*',
-				'./public/models/**/*',
-				'./public/pages/**/*',
-				'./public/sass/**/*'
+				'./public/**/*'
 			]
 		},
 

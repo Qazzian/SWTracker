@@ -29,6 +29,8 @@ module.exports = function(grunt) {
 		'!public/jspm_packages/**/*'
 	];
 
+	var LIVE_RELOAD_PORT = 8083;
+
 	//var Log = require('grunt-legacy-log').Log;
 	//var logger = new Log({grunt: grunt});
 	//grunt.log = logger.writeln;
@@ -36,7 +38,7 @@ module.exports = function(grunt) {
 	grunt.log.writeln('Adding config');
 
 	// Project configuration.
-	grunt.initConfig({
+	var gruntConfig = {
 		pkg: grunt.file.readJSON('package.json'),
 		compass: {
 			options: {
@@ -66,8 +68,7 @@ module.exports = function(grunt) {
 				]
 			}
 		},
-		jasmine: {
-		},
+		jasmine: {},
 		jscs: {
 			options: {},
 			all: jsFiles
@@ -119,7 +120,8 @@ module.exports = function(grunt) {
 		watch: {
 			options: {
 				atBegin: true,
-				interrupt: true
+				interrupt: true,
+				livereload: LIVE_RELOAD_PORT
 			},
 			grunt: {
 				files: [
@@ -153,7 +155,8 @@ module.exports = function(grunt) {
 				tasks: ['styleTasks']
 			}
 		}
-	});
+	};
+	grunt.initConfig(gruntConfig);
 
 	// Custom tasks.
 	grunt.registerTask('default', 'Alias for allTasks.', ['allTasks']);
@@ -193,14 +196,14 @@ module.exports = function(grunt) {
 		exec('rm -rf public-build', puts);
 	});
 
-	function renderIndexTemplate(output, scripts) {
+	function renderIndexTemplate(output, scripts, liveReloadPort) {
 		var template = fs.readFileSync('public/index.mustache', 'utf8');
-		var html = mustache.render(template, {scripts: scripts});
+		var html = mustache.render(template, {scripts: scripts, liveReloadPort: liveReloadPort});
 		fs.writeFileSync(output, html, 'utf8');
 	}
 
 	grunt.registerTask('build-html:dev', 'Create the index.html file for development', function() {
-		renderIndexTemplate('public/index.html', HTML_SCRIPTS.DEV);
+		renderIndexTemplate('public/index.html', HTML_SCRIPTS.DEV, LIVE_RELOAD_PORT);
 	});
 
 	grunt.registerTask('build-html:prod', 'Create the index.html file for development', function() {
@@ -213,7 +216,7 @@ module.exports = function(grunt) {
 			fs.mkdirSync(buildDir);
 		}
 
-		renderIndexTemplate('public-build/index.html', HTML_SCRIPTS.PROD);
+		renderIndexTemplate('public-build/index.html', HTML_SCRIPTS.PROD, null);
 	});
 
 };
