@@ -33,12 +33,12 @@ module.exports = function(config) {
 		},
 
 		browsers: [
-			'Chrome'
-			, 'PhantomJS'
+			'Chrome',
+			'PhantomJS'
 		],
 
 		preprocessors: {
-			'public/!(*spec).js': ['babel', 'sourcemap', 'coverage']
+			'public/(models|today|testing)/*.js': ['babel', 'sourcemap', 'coverage']
 		},
 
 		babelPreprocessor: {
@@ -55,7 +55,7 @@ module.exports = function(config) {
 		coverageReporter: {
 			instrumenters: {isparta: require('isparta')},
 			instrumenter: {
-				'src/*.js': 'isparta'
+				'public/**/*.js': 'isparta'
 			},
 
 			reporters: [
