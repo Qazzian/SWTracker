@@ -23,6 +23,7 @@ catch (err) {
 	console.error(err);
 	debugger;
 }
+
 /**
  * Daily totals view.
  * Needs the totals data passed to it

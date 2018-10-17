@@ -28,7 +28,7 @@ describe('totals', () => {
 	it('should render correctly', function(done) {
 		can.view('totalsWrapper');
 		var $totalSection = $('section.totals');
-		expect($totalSection.length).toBeGreaterThan(0);
+		expect($totalSection.length).toBeGreaterThan(10);
 		done();
 	});
 });
